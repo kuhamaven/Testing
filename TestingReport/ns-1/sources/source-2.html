@@ -1,0 +1,144 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > BankAccount2</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">&lt;empty package name&gt;</a>
+</div>
+
+<h1>Coverage Summary for Class: BankAccount2 (&lt;empty package name&gt;)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BankAccount2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;public class BankAccount2 {
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;    private float balance;
+<i class="no-highlight">4</i>&nbsp;    private String owner;
+<i class="no-highlight">5</i>&nbsp;
+<b class="nc"><i class="no-highlight">6</i>&nbsp;    public BankAccount2(String owner){</b>
+<b class="nc"><i class="no-highlight">7</i>&nbsp;        this.owner = owner;</b>
+<b class="nc"><i class="no-highlight">8</i>&nbsp;        balance = 0;</b>
+<i class="no-highlight">9</i>&nbsp;    }
+<i class="no-highlight">10</i>&nbsp;
+<i class="no-highlight">11</i>&nbsp;    public void addMoney(float moneyToAdd){
+<b class="nc"><i class="no-highlight">12</i>&nbsp;        if(moneyToAdd&lt;0) throw new RuntimeException(&quot;Can&#39;t add negative money!&quot;);</b>
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        balance += moneyToAdd;</b>
+<i class="no-highlight">14</i>&nbsp;    }
+<i class="no-highlight">15</i>&nbsp;
+<i class="no-highlight">16</i>&nbsp;    public void extractMoney(float moneyToExtract){
+<b class="nc"><i class="no-highlight">17</i>&nbsp;        if(moneyToExtract&lt;0) throw new RuntimeException(&quot;Can&#39;t extract negative money!&quot;);</b>
+<b class="nc"><i class="no-highlight">18</i>&nbsp;        if(balance-moneyToExtract&lt;0) throw new RuntimeException(&quot;Not enough money!&quot;);</b>
+<b class="nc"><i class="no-highlight">19</i>&nbsp;        balance -= moneyToExtract;</b>
+<i class="no-highlight">20</i>&nbsp;    }
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;    public void transfer(BankAccount2 target, float amount){
+<i class="no-highlight">23</i>&nbsp;        try{
+<b class="nc"><i class="no-highlight">24</i>&nbsp;            extractMoney(amount);</b>
+<b class="nc"><i class="no-highlight">25</i>&nbsp;        } catch (RuntimeException e){</b>
+<b class="nc"><i class="no-highlight">26</i>&nbsp;            throw new RuntimeException(&quot;Not enough money for this transfer!&quot;);</b>
+<i class="no-highlight">27</i>&nbsp;        } finally {
+<b class="nc"><i class="no-highlight">28</i>&nbsp;            target.addMoney(amount);</b>
+<b class="nc"><i class="no-highlight">29</i>&nbsp;        }</b>
+<i class="no-highlight">30</i>&nbsp;    }
+<i class="no-highlight">31</i>&nbsp;
+<i class="no-highlight">32</i>&nbsp;    public float getBalance() {
+<b class="nc"><i class="no-highlight">33</i>&nbsp;        return balance;</b>
+<i class="no-highlight">34</i>&nbsp;    }
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;    public String getOwner() {
+<b class="nc"><i class="no-highlight">37</i>&nbsp;        return owner;</b>
+<i class="no-highlight">38</i>&nbsp;    }
+<i class="no-highlight">39</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-09-07 23:04</div>
+</div>
+</body>
+</html>

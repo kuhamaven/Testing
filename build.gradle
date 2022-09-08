@@ -1,0 +1,32 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'jacoco'
+
+idea {
+    project {
+        //Set specific jdk and language level
+        jdkName = '18'
+        languageLevel = '18'
+    }
+    module {
+        excludeDirs += file('build')
+        excludeDirs += file('gradle')
+        downloadSources = true
+    }
+}
+
+repositories {
+    // Central Repository
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'junit:junit:4.13.1'
+}
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+}
