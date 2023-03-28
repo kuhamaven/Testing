@@ -14,4 +14,11 @@ public class BankAccountTests {
         BankAccount account = new BankAccount("Poor");
         account.extractMoney(-100);
     }
+
+    @Test
+    public void extractingMoneyWithEnoughBalanceShouldWork(){
+        BankAccount account = new BankAccount("Rich");
+        account.addMoney(1000);
+        account.extractMoney(100);
+    }
 }
