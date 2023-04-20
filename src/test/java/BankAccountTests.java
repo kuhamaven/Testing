@@ -1,23 +1,28 @@
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class BankAccountTests {
 
+    BankAccount account;
+
+    @Before
+    public void initialize(){
+        account = new BankAccount("Khalil Stessens");
+    }
+
     @Test
     public void testBankAccountGetsCreatedSuccesfully(){
-        BankAccount bankAccount = new BankAccount("Khalil Stessens");
-        Assert.assertEquals("Khalil Stessens",bankAccount.getOwner());
+        Assert.assertEquals("Khalil Stessens",account.getOwner());
     }
 
     @Test (expected = RuntimeException.class)
     public void extractingNegativeMoneyThrowsRuntimeException(){
-        BankAccount account = new BankAccount("Poor");
         account.extractMoney(-100);
     }
 
     @Test
     public void extractingMoneyWithEnoughBalanceShouldWork(){
-        BankAccount account = new BankAccount("Rich");
         account.addMoney(1000);
         account.extractMoney(100);
     }
