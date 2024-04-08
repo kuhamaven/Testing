@@ -1,9 +1,11 @@
-public class BankAccount2 {
+package Module2;
+
+public class BankAccount {
 
     private float balance;
     private String owner;
 
-    public BankAccount2(String owner){
+    public BankAccount(String owner){
         this.owner = owner;
         balance = 0;
     }
@@ -19,7 +21,7 @@ public class BankAccount2 {
         balance -= moneyToExtract;
     }
 
-    public void transfer(BankAccount2 target, float amount){
+    public void transfer(BankAccount target, float amount){
         try{
             extractMoney(amount);
         } catch (RuntimeException e){
